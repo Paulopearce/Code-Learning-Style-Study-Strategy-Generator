@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code Learning Styles</title>
+    <style>
+      body{
+        background-color: rgb(81, 190, 154);
+      }
+      h1 {
+        text-align: center;
+      }
+
+      h2 {
+        text-align: center;
+      }
+
+      #studyQs {
+        float: left;
+        width: 50%;
+      }
+      #tips {
+        float: right;
+        width: 50%;
+      }
+
+      textarea {
+        background-color: rgb(12, 215, 107);
+        width: 100%;
+        height: 50vh;
+        resize: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Code Learning-Style Study Strategy Generator</h1>
+    <hr/>
+    <div id="studyQs">
+      <h2>Learning Styles</h2>
+      <form>
+        <p>
+          Verbal learners, also known as linguistic learners, learn best through
+          the written and spoken word. Users of this style enjoy language,
+          reading, and writing. Chances are you love words.
+        </p>
+        <input type="checkbox" id="q1" name="q1" value="Verbal" />
+        <label for="q1"> I learn verbally</label><br />
+        <p>
+          Visual learners prefer the use of images, maps, and graphic organizers
+          to access and understand new information. They tend to learn seeing
+          information delivered through pictures or other types of graphic
+          presentation. Chances are you love your text editor due to the colors
+          it uses to refer to specific code.
+        </p>
+        <input type="checkbox" id="q2" name="q2" value="Visual" />
+        <label for="q2"> I learn visually</label><br />
+        <p>
+          Auditory learners best understand content through listening and
+          speaking in situations such as lectures and group discussions. Think
+          audio books, podcasts, lectures etc. Aural learners use repetition as
+          a study technique and benefit from the use of mnemonic devices.
+        </p>
+        <input type="checkbox" id="q3" name="q3" value="Auditory" />
+        <label for="q3"> I learn auditorily</label><br />
+        <p>
+          Students who are kinesthetic learners best understand information
+          through tactile representations of information. These students are
+          hands-on learners and learn best through figuring out things by hand.
+          (i.e. understand how something works by taking something apart and
+          putting it back together.) Some of the characteristics of this group
+          are movement, manipulation, and being hands on. This type of learner
+          tend not mind broken code because they enjoy fixing it. They enjoy the
+          transformation process of taking information and building it into a
+          project.
+        </p>
+        <input type="checkbox" id="q4" name="q4" value="Kinethetic" />
+        <label for="q4"> I learn kinesthetically</label><br />
+        <p>
+          Logical learners rely on logic and reasoning to make sense of the
+          information they receive. If you are a logical learner you like
+          working through problems, understanding cause and effects, and running
+          simulation-type games. They tend to like to workflow applications,
+          read documentation, and utilize libraries that utilize an
+          understanding of hierarchy.
+        </p>
+        <input type="checkbox" id="q5" name="q5" value="Logical" />
+        <label for="q5"> I learn logically</label><br />
+        <p>
+          Social leaners, or interpersonal learners enjoy working in groups.
+          These type of learners thrive on sharing ideas and hearing the
+          suggestions of others. A key to remembering information for this group
+          is working together in social settings such as study groups.
+        </p>
+        <input type="checkbox" id="q6" name="q6" value="Social" />
+        <label for="q6"> I learn socially</label><br />
+        <p>
+          On the opposite of the previous learning style we have solitary
+          learners. Also known as intrapersonal learner, this type of learner
+          needs quiet time alone in order to best process information and grasp
+          concepts. Rather than thrive in a group, this type of learner may find
+          themselves overwhelmed or distracted in a group setting.
+        </p>
+        <input type="checkbox" id="q7" name="q7" value="Solitary" />
+        <label for="q7"> I learn solitarily</label><br /><br />
+        <button onclick="generateTips()">Get my study style strategies</button>
+      </form>
+    </div>
+    <div id="tips">
+      <h2>Strategies</h2>
+      <textarea id="tipsText"></textarea>
+      <input onclick="download()" type="button" id="dwn-btn" value="Download Strategies"/>
+    </div>
+    <script>
+      function generateTips() {
+        event.preventDefault();
+        document.getElementById("tipsText").value = "";
+        if (document.getElementById("q1").checked == true) {
+          event.preventDefault();
+          document.getElementById("tipsText").value += `Verbal Study Strategies:
+
+Take the time to sit down and write, write and rewrite your words and notes.
+Try rewording main ideas and principles to gain a deeper understanding.
+A good idea is to try organize diagrams, charts, and graphic organizers into statements.
+
+One of the keys to becoming a great programmer is reading documentation. Most courses and resources greatly emphasize this. Use this to your benefit. Re-reading documentation, rewriting your notes, using mnemonic devices, acronyms, diagrams, and other strategies will help improve your memory.
+
+`;
+        }
+        if (document.getElementById("q2").checked == true) {
+          document.getElementById("tipsText").value +=`Visual Study Strategies:
+
+Utilize graphic organizers such as charts, graphs, and diagrams.
+Redraw your pages from memory.
+Replace important words with symbols or initials.
+Highlight important key terms in corresponding colors.
+
+Mind maps, diagrams, and images are your best friend. Mind maps are visual representations of thoughts and ideas that demonstrate how they are related. Opt for coding resources that use diagrams or images. If you take notes, try incorporating colors in a similar fashion to the way text editors work. Or sketch out concepts or layout ideas to develop your projects.
+
+`;
+        }
+        if (document.getElementById("q3").checked == true) {
+          document.getElementById("tipsText").value +=`Auditory Study Strategies:
+
+Record your summarized notes and listen to them on tape.
+Talk it out. Have a discussion with others to expand upon your understanding of a topic.
+Reread your notes and/or assignment out loud.
+Explain your notes to your peers/fellow “aural” learners.
+
+There is so much vocabulary we need pick up as new coders. Auditory learners have the advantage of benefitting from hearing them being used.
+
+`
+        }
+        if (document.getElementById("q4").checked == true) {
+          document.getElementById("tipsText").value +=`Kinesthetic Study Strategies:
+
+Use real life examples, applications and case studies in your summary to help with abstract concepts.
+Redo lab experiments or projects.
+Utilize pictures and photographs that illustrate your idea.
+
+`
+        }
+        if (document.getElementById("q5").checked == true) {
+          document.getElementById("tipsText").value +=`Logical Study Strategies:
+
+Break large amounts of material down into segments and finding ways in which these segments relate.
+Look for patterns, associations and relationships between concepts in order to maximize understanding.
+Make the information personal to your own life, if possible. If you are able to see a pattern and compare it to personal experience in some way, you will begin to make sense of the information.
+
+Learning to code is all about problem solving so these learners really benefit from rolling up their sleeves and working on coding puzzles, challenges, and games.
+
+`
+        }
+        if (document.getElementById("q6").checked == true) {
+          document.getElementById("tipsText").value +=`Social Study Strategies:
+
+Set a time and place to meet together with a study group. If you meeting with classmates in person is not possible, consider forming virtual study groups through Slack or Zoom.
+Take turns teaching each other. Each can can take a portion of the material and create a lesson to share with the others.
+Talk to a friend or family member about your educational pursuits. Explain what you’re learning or ask them to quiz you.
+
+
+They should take advantage and connect with a study partner or two when possible and take turns going over material and testing each other. Chances are you’d enjoy participating in a local Hackathon, attending a coding meet-up, or any other kind of coding study group.
+
+`
+        }
+        if (document.getElementById("q7").checked == true) {
+          document.getElementById("tipsText").value +=`Solitary Study Strategies:
+
+Setup a quiet and personal space at home or a space available to you. It will help you get in the right mindset to focus on academic work.
+During each study session make time to write down goals and set deadlines for completing them.
+Take the time to brainstorm and write down ways to review the material with flashcards or outlines.
+          
+They will best benefit of reading on their own and taking the time to pause when needed to ensure comprehension. If you are a solitary learner there are an abundance of resources to research online and coding challenges you can attempt in your downtime.
+
+`
+        }
+      }
+        function download(){
+ 
+          var text = document.getElementById("tipsText").value;
+          var filename = "LearningStyleStrategyGuide.txt";
+            
+          var element = document.createElement('a');
+          element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+          element.setAttribute('download', filename);
+
+          element.style.display = 'none';
+          document.body.appendChild(element);
+
+          element.click();
+
+          document.body.removeChild(element);
+        };
+  
+
+      
+    </script>
+  </body>
+</html>
